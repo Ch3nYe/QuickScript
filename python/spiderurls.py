@@ -20,5 +20,13 @@ gets = html.xpath('/html/body/div[3]/div[2]/div[2]/div/ul//li/div/a/@href')
 # print("\n".join(gets))
 urls+=gets
 
-print('总计：',len(urls))
-print("\n".join(urls))
+result=[]
+for url in urls:
+    url = url.split('/')[-1]
+    result.append(url)
+
+print("\n".join(result))
+print("总计",len(result))
+with open("./urls.txt",'a+') as f:
+    f.writelines("\n".join(result))
+
