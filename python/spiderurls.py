@@ -10,7 +10,7 @@ for i in range(1,11):
 
     gets = html.xpath('/html/body/div[3]/div[2]/div[2]/div/ul//li/div/a/@href')
     # print("\n".join(gets))
-    urls.append()
+    urls+=gets
 
 # 第一页
 response = request(url="https://scss.bupt.edu.cn/szdw/jsml.htm", method='GET')
@@ -18,8 +18,7 @@ response = response.content.decode('utf-8')
 html = etree.HTML(response)
 gets = html.xpath('/html/body/div[3]/div[2]/div[2]/div/ul//li/div/a/@href')
 # print("\n".join(gets))
-urls.append(gets)
+urls+=gets
 
-print(len(urls))
-
-# url = html.xpath('/html/body/div[3]/div[2]/div[2]/div/ul//li/a/@href')
+print('总计：',len(urls))
+print("\n".join(urls))
